@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import { shorturl } from "./data";
-import {FileCopyOutlined } from "@material-ui/icons";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 import { Button} from "@material-ui/core";
 import style from "./App.module.css";
 import copy from "copy-to-clipboard";
@@ -16,8 +16,9 @@ const App = ({value }) => {
         return alert("Please enter the url");
       }
       const getResult = await shorturl(url);
-      console.log(result);
+      console.log(url);
       setResult([getResult]);
+      setUrl("");
    
     
     } catch (error) {
@@ -25,16 +26,14 @@ const App = ({value }) => {
     }
   };
 
-  const copied = () => {
-    
-    copy(result[0].result_url);
-    
-    alert("Successfully copied: " + result[0].result_url);
+  const copiedData= () => {
+    copy(result[0].result_url); 
+    alert("Successfully copied shorten link: " + result[0].result_url);
   };
 
   return (
     <div >
-      <h1 className={style.container}>paste a link to shorten it</h1>
+      <h1 className={style.container}>Paste a link to shorten it</h1>
       <div className="inputContainer">
         <input  className={style.inputfield}
           type="url"
@@ -48,12 +47,12 @@ const App = ({value }) => {
       <br/>
       {
       result.length > 0 && result[0].result_url ? (
-        <div className={style.main}onClick={copied}>
-          <h2 >
-
-            {result.length > 0 && result[0].result_url ? result[0].result_url : null}
+        <div className={style.main} onClick={copiedData}>
+          <h2 className={style.link}>
+              {result.length > 0 && result[0].result_url ? result[0].result_url : null}
+              <FileCopyIcon fontSize="medium" className={style.copy}/>
           </h2>
-          <FileCopyOutlined/>
+  
         </div>
       ) : null}
     </div>

@@ -27,6 +27,7 @@ body{
   height: 40px;
   border:2.5px solid mediumblue;
   margin-left: 35%;
+  text-align: center;
   padding:0 10px ;
   border-radius: 5px;
   font-size: medium;
@@ -43,8 +44,52 @@ body{
 
 }
 .main{
-  background-color: mediumturquoise;
-  width: 100px;
-  height: 100px;
-  color: white;
+  background-color:rgb(60, 138, 190);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  width:400px;
+  height: 50px;
+  margin-left:35%;
+  margin-right: 25%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 5px;
+}
+.copy{
+  color: black;
+ margin-left: 20px;
+ margin-top: 20px;
+}
+.link{
+  margin-top: -20px !important;
+  
+}
+
+@media only screen and (max-width:650px){
+  .inputfield{
+    width: 100%;
+
+    position:relative;
+    margin:5px 15px 5px 15px;
+  }
+  .container{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+ .btn{
+   width: 50%;
+   margin: 25px 40px 5px 120px!important;
+ }
+ .main{
+   width: 100%;
+   text-align: center;
+   margin:5px 15px 5px 15px;
+ }
+ .main>h2{
+   font-size: 1rem !important;
+ }
+  
 }
